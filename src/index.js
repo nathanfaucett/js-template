@@ -9,7 +9,7 @@ function template(text, data, settings) {
 
         index = 0,
         source = "__p+='";
-    
+
     settings || (settings = {});
     for (var key in templateSettings) if (settings[key] == null) settings[key] = templateSettings[key];
     start = settings.start;

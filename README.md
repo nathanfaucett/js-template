@@ -1,4 +1,4 @@
-EJS
+Template
 =======
 
-ejs for the browser and node.js
+template for the browser and node.js
