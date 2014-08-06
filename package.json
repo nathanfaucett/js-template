@@ -1,0 +1,22 @@
+{
+  "name": "template",
+  "version": "0.0.1",
+  "description": "template for the browser and node.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nathanfaucett/template.git"
+  },
+  "main": "src/index.js",
+  "keywords": [
+    "template",
+    "template.js"
+  ],
+  "author": "Nathan Faucett",
+  "license": "BSD-2-Clause",
+  "readmeFilename": "README.md",
+  "devDependencies": {
+    "grunt": "",
+    "grunt-jsbeautifier": ""
+  }
+}
+
