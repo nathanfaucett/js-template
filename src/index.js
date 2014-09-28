@@ -11,7 +11,8 @@ function template(text, data, settings) {
         source = "__p+='";
 
     settings || (settings = {});
-    for (var key in templateSettings) if (settings[key] == null) settings[key] = templateSettings[key];
+    for (var key in templateSettings)
+        if (settings[key] == null) settings[key] = templateSettings[key];
     start = settings.start;
     end = settings.end;
 
@@ -25,13 +26,13 @@ function template(text, data, settings) {
             source += text.slice(index, offset).replace(escaper, function(match) {
                 return '\\' + escapes[match];
             });
-    
+
             if (escape) source += "'+\n((__t=(" + escape + "))==null?'':escape(__t))+\n'";
             if (interpolate) source += "'+\n((__t=(" + interpolate + "))==null?'':__t)+\n'";
             if (evaluate) source += "';\n" + evaluate + "\n__p+='";
-    
+
             index = offset + match.length;
-    
+
             return match;
         }
     );
