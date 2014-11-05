@@ -11,8 +11,9 @@ function template(text, data, settings) {
         source = "__p+='";
 
     settings || (settings = {});
-    for (var key in templateSettings)
+    for (var key in templateSettings) {
         if (settings[key] == null) settings[key] = templateSettings[key];
+    }
     start = settings.start;
     end = settings.end;
 
@@ -47,7 +48,9 @@ function template(text, data, settings) {
         e.source = source;
         throw e;
     }
-    if (data) return render(data);
+    if (data) {
+        return render(data);
+    }
 
     function temp(data) {
         return render.call(this, data);
