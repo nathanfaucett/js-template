@@ -15,7 +15,8 @@ module.exports = function(grunt) {
                 curly: true,
                 eqeqeq: true,
                 expr: true,
-                eqnull: true
+                eqnull: true,
+                evil: true
             },
             files: [
                 "src/**/*.js",
