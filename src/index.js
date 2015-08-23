@@ -22,10 +22,12 @@ function template(text, data, settings) {
 
         render, start, end, evaluate, interpolate, escape;
 
-    settings || (settings = {});
+    settings = settings || {};
 
     for (var key in templateSettings) {
-        if (settings[key] == null) settings[key] = templateSettings[key];
+        if (settings[key] == null) {
+            settings[key] = templateSettings[key];
+        }
     }
 
     start = settings.start;
@@ -60,7 +62,9 @@ function template(text, data, settings) {
     );
     source += "';\n";
 
-    if (!settings.variable) source = 'with(obj||{}){\n' + source + '}\n';
+    if (!settings.variable) {
+        source = 'with(obj||{}){\n' + source + '}\n';
+    }
     source = "var __t,__p='',__j=Array.prototype.join;\n" + source + "return __p;\n";
 
     try {
