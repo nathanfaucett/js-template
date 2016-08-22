@@ -1,3 +1,6 @@
+var isNullOrUndefined = require("@nathanfaucett/is_null_or_undefined");
+
+
 var reEscaper = /\\|'|\r|\n|\t|\u2028|\u2029/g,
     ESCAPES = {
         "'": "'",
@@ -25,7 +28,7 @@ function template(text, data, settings) {
     settings = settings || {};
 
     for (var key in templateSettings) {
-        if (settings[key] == null) {
+        if (isNullOrUndefined(settings[key])) {
             settings[key] = templateSettings[key];
         }
     }
@@ -68,13 +71,13 @@ function template(text, data, settings) {
     source = "var __t,__p='',__j=Array.prototype.join;\n" + source + "return __p;\n";
 
     try {
-        render = new Function(settings.variable || 'obj', source);
+        render = new Function(settings.variable || "obj", source);
     } catch (e) {
         e.source = source;
         throw e;
     }
 
-    return data != null ? render(data) : function temp(data) {
+    return !isNullOrUndefined(data) ? render(data) : function temp(data) {
         return render.call(this, data);
     };
 }
